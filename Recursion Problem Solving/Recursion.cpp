@@ -23,24 +23,6 @@ using namespace std;
         
 }
 
-int main () {
-//Start-up display//
-    int x, r;
-        cout <<"Enter a non-negative integers"<<endl;
-//Check for Positiive integers//
-   if (cin>>x)
-    
-    r=factorial(x);
-    cout <<x<<"!="<<r<<endl;
-        return 0;
-}
-
-
-     //Summon relevant input/output libraries and object containers//
-//Header: input/output lib and object container//
-#include <iostream>
-using namespace std;
-
 //Data-type and variable declaration and initialization//
 int fibbonacci(int n) {
     //Base Case//
@@ -49,21 +31,6 @@ int fibbonacci(int n) {
         }
         //Recursive Function//
     return fibbonacci(n-1)+fibbonacci(n-2);
-}
-//FIBBONACCI SERIES IMPLEMENTATION//
-int main() {
-    int n;
-    cout<<"Enter the fibbonacci number: "; //start page display//
-    
-    cin>>n; //Reading input//
-
-    cout<<"Fibbonacci series up to" << n << "terms:" ;
-    for (int i=0; i<n; i++) {
-        cout<<fibbonacci(i)<<endl; //Iterates through the number of terms required//
-    }
-
-    return 0; //ends execution after base case is achieved//
-
 }
 
 //  3.  RECURSIVE STRING REVERSAL
@@ -113,4 +80,70 @@ void search() {
         cout << "Target found at index " << pos << " (0-based).\n";
     else
         cout << "Target NOT found in array.\n";
+}
+
+// --------------------------------------------------------------
+//  MAIN using switch case loop
+// --------------------------------------------------------------
+int main() {
+    while (true) {
+        cout << "\n========== MENU ==========\n"
+             << "1. Factorial Calculation\n"
+             << "2. Fibonacci sequence\n"
+             << "3. Reverse a string\n"
+             << "4. Binary search\n"
+             << "0. Exit\n"
+             << "Choice: ";
+        int choice;
+        if (!(cin >> choice)) break;   // non-int input → quit
+        switch (choice) {
+            case 1: {
+                /*int x;
+                do{
+                cout << "Enter a non-negative integer: ";
+                while(!(cin >> x)){
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid number, try again: ";
+                }
+                if (x < 0)
+                    cout << "Please enter a non-negative integer.\n";
+                } while (x < 0);
+                
+                cout << x << "! = " << factorial(x) << "\n";*/
+
+                //Start-up display//
+                int x, r;
+                cout <<"Enter a non-negative integers"<<endl;
+                //Check for Positiive integers//
+                if (cin>>x)
+    
+                r=factorial(x);
+                cout <<x<<"!="<<r<<endl;
+                break;
+            }
+            case 2: {
+                /*int n;
+                cout << "Enter number of terms: ";
+                cin >> n;
+                cout << "Fibonacci sequence (" << n << " terms): ";
+                for (int i = 0; i < n; ++i)
+                    cout << fibbonacci(i) << (i + 1 == n ? "\n" : " ");*/
+
+                    //FIBBONACCI SERIES IMPLEMENTATION//
+                int n;
+                cout <<"Enter the fibbonacci number: "; //start page display//
+                cin >> n; //Reading input//
+                cout <<"Fibbonacci series up to" << n << "terms:" ;
+                for (int i = 0; i < n; i++)
+                    cout << fibbonacci(i) << endl; //Iterates through the number of terms required//
+                break;
+            }
+            case 3: reversal(); break;
+            case 4: search(); break;
+            case 0: return 0;
+            default: cout << "Invalid choice.\n";
+        }
+    }
+    return 0;
 }
