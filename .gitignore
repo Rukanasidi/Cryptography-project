@@ -1,0 +1,4 @@
+.vscode/
+# Ignore Visual Studio Code settings
+Recursion.exe
+# Ignore compiled binary files
