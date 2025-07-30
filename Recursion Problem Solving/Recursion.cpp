@@ -1,36 +1,36 @@
-     //Summon relevant input/output libraries and object containers//
+// --------------------------------------------------------------
+//  Program: Factorial, Fibonacci, String reversal, Binary search
+// -------------------------------------------------------------- 
+
+ //Summon relevant input/output libraries and object containers//
 #include <iostream>
 #include <vector>
 using namespace std;
 
-#include <limits>
-
-
+//  1.  RECURSIVE FACTORIAL CALCULATION
 
  int factorial(int x) {
     //Error Handling for Non-positive Integers//  
-        if (x < 0)
-    cerr<<"Error:factorial cannot be implemented"<<'\n'<<endl;
-    cin.clear();
-    cout <<"Enter a non-negative integers"<<endl;
-    return -1;
+    if (x < 0)
+        return -1;
 //Setting the base case of the recursive function//
-     if (x==0 || x==1) 
+     if (x == 0 || x == 1) 
         return 1;
-         //The Recursive Function//
-    else 
-        return (x*factorial(x-1));
+         //The Recursive Function// 
+    return (x * factorial(x - 1));
         
 }
+
+//  2.  RECURSIVE FIBONACCI  SEQUENCE
 
 //Data-type and variable declaration and initialization//
 int fibbonacci(int n) {
     //Base Case//
-        if(n<=1) {
+        if(n <= 1) {
             return n;
         }
         //Recursive Function//
-    return fibbonacci(n-1)+fibbonacci(n-2);
+    return fibbonacci(n - 1) + fibbonacci(n - 2);
 }
 
 //  3.  RECURSIVE STRING REVERSAL
@@ -98,38 +98,21 @@ int main() {
         if (!(cin >> choice)) break;   // non-int input → quit
         switch (choice) {
             case 1: {
-                /*int x;
-                do{
-                cout << "Enter a non-negative integer: ";
-                while(!(cin >> x)){
-                    cin.clear();
-                    cin.ignore(1000, '\n');
-                    cout << "Invalid number, try again: ";
-                }
-                if (x < 0)
-                    cout << "Please enter a non-negative integer.\n";
-                } while (x < 0);
-                
-                cout << x << "! = " << factorial(x) << "\n";*/
-
                 //Start-up display//
                 int x, r;
-                cout <<"Enter a non-negative integers"<<endl;
+                cout << "Enter a non-negative integer: " << endl;
                 //Check for Positiive integers//
-                if (cin>>x)
+                if (cin >> x) {
     
-                r=factorial(x);
-                cout <<x<<"!="<<r<<endl;
+                r = factorial(x);
+                if(r == -1)
+                cout << "Error: factorial cannot be implemented for negative numbers.\n";
+                else
+                cout << x << "! = "<< r << endl;
+                }
                 break;
             }
             case 2: {
-                /*int n;
-                cout << "Enter number of terms: ";
-                cin >> n;
-                cout << "Fibonacci sequence (" << n << " terms): ";
-                for (int i = 0; i < n; ++i)
-                    cout << fibbonacci(i) << (i + 1 == n ? "\n" : " ");*/
-
                     //FIBBONACCI SERIES IMPLEMENTATION//
                 int n;
                 cout <<"Enter the fibbonacci number: "; //start page display//
